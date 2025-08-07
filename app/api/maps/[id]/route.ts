@@ -119,6 +119,7 @@ export async function PUT(
     const categoryId = parseInt(formData.get('categoryId') as string);
     const conditionId = parseInt(formData.get('conditionId') as string);
     const yearCreated = formData.get('yearCreated') ? parseInt(formData.get('yearCreated') as string) : null;
+    const mapmaker = formData.get('mapmaker') as string;
     const region = formData.get('region') as string;
     const dimensions = formData.get('dimensions') as string;
     const isFeatured = formData.get('isFeatured') === 'true';
@@ -200,6 +201,7 @@ export async function PUT(
         categoryId,
         conditionId,
         yearCreated,
+        mapmaker: mapmaker || null,
         region: region || null,
         dimensions: dimensions || null,
         featuredImage,

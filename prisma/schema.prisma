@@ -19,6 +19,7 @@ model Map {
   conditionId          Int
   categoryId           Int
   yearCreated          Int?
+  mapmaker             String?
   region               String?
   dimensions           String?
   featuredImage        String?

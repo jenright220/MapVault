@@ -170,6 +170,20 @@ export default function EditMapForm({ map, categories, conditions, vendors, stor
           </div>
 
           <div>
+            <label htmlFor="mapmaker" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+              Mapmaker / Publisher
+            </label>
+            <input
+              type="text"
+              id="mapmaker"
+              name="mapmaker"
+              defaultValue={map.mapmaker || ''}
+              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 dark:bg-slate-700 dark:text-slate-100"
+              placeholder="e.g., John Smith, Rand McNally"
+            />
+          </div>
+
+          <div>
             <label htmlFor="region" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
               Region
             </label>

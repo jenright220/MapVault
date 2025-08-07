@@ -1,3 +1,4 @@
 node_modules
 
 /generated/prisma
+.next/cache/webpack/client-development/0.pack.gz
