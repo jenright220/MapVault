@@ -141,6 +141,13 @@ export default async function MapDetailPage({ params }: MapDetailPageProps) {
               </div>
             )}
             
+            {map.mapmaker && (
+              <div className="bg-slate-50 dark:bg-slate-800 p-4 rounded-lg">
+                <h4 className="font-medium text-slate-900 dark:text-slate-100 mb-1">Mapmaker</h4>
+                <p className="text-slate-600 dark:text-slate-300">{map.mapmaker}</p>
+              </div>
+            )}
+            
             {map.dimensions && (
               <div className="bg-slate-50 dark:bg-slate-800 p-4 rounded-lg">
                 <h4 className="font-medium text-slate-900 dark:text-slate-100 mb-1">Dimensions</h4>

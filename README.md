@@ -5,6 +5,7 @@ A personal Content Management System for organizing and managing your antique ma
 ## Features
 
 - **Public Collection View**: Browse your map collection with a responsive design
+- **Advanced Search & Filtering**: Search by title, description, mapmaker, or region with comprehensive filters
 - **Detailed Map Pages**: Individual pages showing comprehensive map information
 - **Admin Authentication**: Secure login system to protect admin functionality
 - **Admin Upload Form**: Add new maps with images and detailed metadata  
@@ -92,6 +93,17 @@ The application includes the following main entities:
 - **Delete Maps**: Remove maps from your collection with confirmation (includes image cleanup)
 - **Featured Maps**: Mark important maps as "featured" to highlight them
 - **Availability Status**: Track which maps are available for sale
+
+### Advanced Search & Filtering
+
+- **Text Search**: Search across map titles, descriptions, mapmakers, and regions
+- **Category Filter**: Filter by map type (World Maps, City Maps, etc.)
+- **Year Range**: Filter maps by creation date range
+- **Mapmaker Filter**: Find maps by specific cartographers or publishers
+- **Region Filter**: Filter by geographic area or location
+- **Condition Filter**: Filter by map condition (Mint, Fine, Good, etc.)
+- **Special Filters**: Filter by featured status and availability
+- **Real-time Results**: Instant search results as you type with debounced queries
 
 ### Admin Management System
 
