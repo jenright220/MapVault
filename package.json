@@ -1,0 +1,56 @@
+{
+  "name": "mapvault",
+  "version": "1.0.0",
+  "description": "Personal CMS for organizing antique maps",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "prisma generate",
+    "db:seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.1.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.10.5",
+    "@types/react": "^18.3.17",
+    "@types/react-dom": "^18.3.5",
+    "autoprefixer": "^10.4.20",
+    "bcryptjs": "^3.0.2",
+    "eslint": "^9.18.0",
+    "eslint-config-next": "^15.4.6",
+    "iron-session": "^8.0.4",
+    "lucide-react": "^0.469.0",
+    "multer": "^1.4.5-lts.1",
+    "next": "^15.4.6",
+    "next-cloudinary": "^6.15.1",
+    "postcss": "^8.5.2",
+    "prisma": "^6.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.7.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jenright220/MapVault.git"
+  },
+  "keywords": [
+    "antique maps",
+    "cms",
+    "collection"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jenright220/MapVault/issues"
+  },
+  "homepage": "https://github.com/jenright220/MapVault#readme",
+  "devDependencies": {
+    "tsx": "^4.20.3"
+  }
+}

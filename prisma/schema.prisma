@@ -1,0 +1,115 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Map {
+  id                   Int       @id @default(autoincrement())
+  // Public fields
+  title                String
+  description          String?
+  price                Float
+  conditionId          Int
+  categoryId           Int
+  yearCreated          Int?
+  region               String?
+  dimensions           String?
+  featuredImage        String?
+  isFeatured           Boolean   @default(false)
+  isAvailable          Boolean   @default(true)
+  // Private fields
+  purchasePrice        Float?
+  purchaseDate         DateTime?
+  vendorId             Int?
+  storageLocationId    Int?
+  storageNotes         String?
+  foldingStatus        FoldingStatus?
+  privateNotes         String?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+  
+  // Relationships
+  category             Category  @relation(fields: [categoryId], references: [id])
+  condition            Condition @relation(fields: [conditionId], references: [id])
+  vendor               Vendor?   @relation(fields: [vendorId], references: [id])
+  storageLocation      StorageLocation? @relation(fields: [storageLocationId], references: [id])
+  images               MapImage[]
+
+  @@map("maps")
+}
+
+model Category {
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  description String?
+  sortOrder   Int     @default(0)
+  isActive    Boolean @default(true)
+  
+  maps        Map[]
+  
+  @@map("categories")
+}
+
+model Condition {
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  description String?
+  sortOrder   Int     @default(0)
+  
+  maps        Map[]
+  
+  @@map("conditions")
+}
+
+model Vendor {
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  contactInfo String?
+  notes       String?
+  isActive    Boolean @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  maps        Map[]
+  
+  @@map("vendors")
+}
+
+model StorageLocation {
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  description String?
+  sortOrder   Int     @default(0)
+  isActive    Boolean @default(true)
+  
+  maps        Map[]
+  
+  @@map("storage_locations")
+}
+
+model MapImage {
+  id          Int     @id @default(autoincrement())
+  mapId       Int
+  filename    String
+  originalName String?
+  description String?
+  sortOrder   Int     @default(0)
+  createdAt   DateTime @default(now())
+  
+  map         Map     @relation(fields: [mapId], references: [id], onDelete: Cascade)
+  
+  @@map("map_images")
+}
+
+enum FoldingStatus {
+  FLAT
+  FOLDED  
+  ROLLED
+}
