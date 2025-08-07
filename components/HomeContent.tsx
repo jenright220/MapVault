@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { Map, Category, Condition } from '@prisma/client';
 import MapsTable from './MapsTable';
 import MapSearch from './MapSearch';
@@ -19,10 +19,10 @@ export default function HomeContent({ initialMaps, isAdmin }: HomeContentProps) 
   const [searchResults, setSearchResults] = useState<MapWithRelations[]>(initialMaps);
   const [totalResults, setTotalResults] = useState(initialMaps.length);
 
-  const handleSearchResults = (maps: MapWithRelations[], total: number) => {
+  const handleSearchResults = useCallback((maps: MapWithRelations[], total: number) => {
     setSearchResults(maps);
     setTotalResults(total);
-  };
+  }, []);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

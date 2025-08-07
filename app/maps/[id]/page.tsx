@@ -14,7 +14,8 @@ interface MapDetailPageProps {
 }
 
 export default async function MapDetailPage({ params }: MapDetailPageProps) {
-  const mapId = parseInt(params.id);
+  const { id } = await params;
+  const mapId = parseInt(id);
   
   if (isNaN(mapId)) {
     notFound();

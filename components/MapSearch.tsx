@@ -90,7 +90,7 @@ export default function MapSearch({ onSearchResults, initialMaps }: MapSearchPro
     } finally {
       setIsLoading(false);
     }
-  }, [searchQuery, activeFilters, onSearchResults, initialMaps]);
+  }, [searchQuery, activeFilters]); // Removed onSearchResults and initialMaps from deps
 
   // Debounce search
   useEffect(() => {

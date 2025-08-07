@@ -11,7 +11,8 @@ interface EditMapPageProps {
 }
 
 export default async function EditMapPage({ params }: EditMapPageProps) {
-  const mapId = parseInt(params.id);
+  const { id } = await params;
+  const mapId = parseInt(id);
   
   if (isNaN(mapId)) {
     notFound();
