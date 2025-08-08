@@ -39,7 +39,7 @@ export default async function AdminManagePage() {
     {
       title: 'Storage Locations',
       description: 'Manage physical storage locations and organization',
-      href: '/admin/manage/storage',
+      href: '/admin/manage/storage-locations',
       icon: Archive,
       count: storageLocationsCount,
       color: 'bg-orange-500'

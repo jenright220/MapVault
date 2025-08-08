@@ -45,7 +45,7 @@ export default function UploadForm({ categories, conditions, vendors, storageLoc
       const result = await response.json();
 
       if (response.ok) {
-        router.push(`/maps/${result.map.id}`);
+        router.push(`/mapvault/maps/${result.map.id}`);
         router.refresh();
       } else {
         setError(result.error || 'Failed to upload map');
