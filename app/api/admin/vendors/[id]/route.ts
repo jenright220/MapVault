@@ -5,14 +5,15 @@ import { isAuthenticated } from '@/lib/auth';
 // PUT - Update vendor
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     if (!(await isAuthenticated())) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const vendorId = parseInt(params.id);
+    const { id } = await params;
+    const vendorId = parseInt(id);
     if (isNaN(vendorId)) {
       return NextResponse.json({ error: 'Invalid vendor ID' }, { status: 400 });
     }
@@ -59,14 +60,15 @@ export async function PUT(
 // DELETE - Delete vendor
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     if (!(await isAuthenticated())) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const vendorId = parseInt(params.id);
+    const { id } = await params;
+    const vendorId = parseInt(id);
     if (isNaN(vendorId)) {
       return NextResponse.json({ error: 'Invalid vendor ID' }, { status: 400 });
     }

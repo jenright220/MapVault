@@ -7,7 +7,7 @@ import { isAuthenticated } from '@/lib/auth';
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Check authentication
@@ -18,7 +18,8 @@ export async function DELETE(
       );
     }
 
-    const mapId = parseInt(params.id);
+    const { id } = await params;
+    const mapId = parseInt(id);
     
     if (isNaN(mapId)) {
       return NextResponse.json(
@@ -90,7 +91,7 @@ export async function DELETE(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Check authentication
@@ -101,7 +102,8 @@ export async function PUT(
       );
     }
 
-    const mapId = parseInt(params.id);
+    const { id } = await params;
+    const mapId = parseInt(id);
     
     if (isNaN(mapId)) {
       return NextResponse.json(
