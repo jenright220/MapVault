@@ -1,7 +1,11 @@
 "use client";
 
 import { useState, useCallback } from 'react';
-import { Map, Category, Condition } from '@prisma/client';
+import { Prisma } from '@prisma/client';
+
+type Map = Prisma.MapGetPayload<{}>;
+type Category = Prisma.CategoryGetPayload<{}>;
+type Condition = Prisma.ConditionGetPayload<{}>;
 import MapsTable from './MapsTable';
 import MapSearch from './MapSearch';
 

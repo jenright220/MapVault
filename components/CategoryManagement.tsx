@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from 'react';
-import { Category, Map } from '@prisma/client';
+import { Prisma } from '@prisma/client';
+
+type Category = Prisma.CategoryGetPayload<{}>;
+type Map = Prisma.MapGetPayload<{}>;
 import { Plus, Edit3, Trash2, Tag, MapPin, Hash } from 'lucide-react';
 
 type CategoryWithMaps = Category & {

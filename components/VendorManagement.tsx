@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from 'react';
-import { Vendor, Map } from '@prisma/client';
+import { Prisma } from '@prisma/client';
+
+type Vendor = Prisma.VendorGetPayload<{}>;
+type Map = Prisma.MapGetPayload<{}>;
 import { Plus, Edit3, Trash2, Store, MapPin, Mail, FileText, Users, Eye, EyeOff } from 'lucide-react';
 
 type VendorWithMaps = Vendor & {

@@ -2,7 +2,12 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Category, Condition, Vendor, StorageLocation } from '@prisma/client';
+import { Prisma } from '@prisma/client';
+
+type Category = Prisma.CategoryGetPayload<{}>;
+type Condition = Prisma.ConditionGetPayload<{}>;
+type Vendor = Prisma.VendorGetPayload<{}>;
+type StorageLocation = Prisma.StorageLocationGetPayload<{}>;
 
 interface UploadFormProps {
   categories: Category[];

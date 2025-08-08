@@ -2,7 +2,13 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Map, Category, Condition, Vendor, StorageLocation } from '@prisma/client';
+import { Prisma } from '@prisma/client';
+
+type Map = Prisma.MapGetPayload<{}>;
+type Category = Prisma.CategoryGetPayload<{}>;
+type Condition = Prisma.ConditionGetPayload<{}>;
+type Vendor = Prisma.VendorGetPayload<{}>;
+type StorageLocation = Prisma.StorageLocationGetPayload<{}>;
 
 type MapWithRelations = Map & {
   category: Category;

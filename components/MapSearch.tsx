@@ -2,7 +2,11 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { Search, Filter, X, Calendar, User, MapPin, Tag, Star, Eye } from 'lucide-react';
-import { Map, Category, Condition } from '@prisma/client';
+import { Prisma } from '@prisma/client';
+
+type Map = Prisma.MapGetPayload<{}>;
+type Category = Prisma.CategoryGetPayload<{}>;
+type Condition = Prisma.ConditionGetPayload<{}>;
 
 type MapWithRelations = Map & {
   category: Category;
