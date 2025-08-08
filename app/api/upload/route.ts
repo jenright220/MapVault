@@ -36,7 +36,8 @@ export async function POST(request: NextRequest) {
     const vendorId = formData.get('vendorId') ? parseInt(formData.get('vendorId') as string) : null;
     const storageLocationId = formData.get('storageLocationId') ? parseInt(formData.get('storageLocationId') as string) : null;
     const storageNotes = formData.get('storageNotes') as string;
-    const foldingStatus = formData.get('foldingStatus') as 'FLAT' | 'FOLDED' | 'ROLLED' | null;
+    const foldingStatusRaw = formData.get('foldingStatus') as string;
+    const foldingStatus = foldingStatusRaw && foldingStatusRaw.trim() !== '' ? foldingStatusRaw as 'FLAT' | 'FOLDED' | 'ROLLED' : null;
     const privateNotes = formData.get('privateNotes') as string;
 
     // Handle file upload
