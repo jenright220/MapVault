@@ -21,6 +21,14 @@ export default function UploadForm({ categories, conditions, vendors, storageLoc
   const [isUploading, setIsUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Debug logging
+  console.log('UploadForm received data:', {
+    categories: categories?.length || 0,
+    conditions: conditions?.length || 0,
+    vendors: vendors?.length || 0,
+    storageLocations: storageLocations?.length || 0
+  });
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsUploading(true);
