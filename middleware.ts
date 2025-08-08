@@ -9,6 +9,7 @@ export async function middleware(request: NextRequest) {
   if (
     pathname.startsWith('/_next/') ||
     pathname.startsWith('/uploads/') ||
+    pathname.startsWith('/mapvault/uploads/') ||
     pathname.startsWith('/favicon.ico') ||
     pathname.startsWith('/api/auth/') ||
     pathname === '/api/upload' ||
