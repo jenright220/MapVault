@@ -8,9 +8,9 @@ import EditMapButton from '@/components/EditMapButton';
 import { isAuthenticated } from '@/lib/auth';
 
 interface MapDetailPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default async function MapDetailPage({ params }: MapDetailPageProps) {

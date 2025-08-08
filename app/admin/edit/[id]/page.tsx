@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 interface EditMapPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default async function EditMapPage({ params }: EditMapPageProps) {
