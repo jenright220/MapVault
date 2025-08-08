@@ -30,6 +30,10 @@ const nextConfig = {
   images: {
     remotePatterns: [],
     domains: [],
+    unoptimized: false, // Keep optimization but configure properly
+    loader: 'default',
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
   },
 }
 

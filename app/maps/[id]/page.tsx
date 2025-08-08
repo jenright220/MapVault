@@ -57,13 +57,11 @@ export default async function MapDetailPage({ params }: MapDetailPageProps) {
         <div className="space-y-4">
           <div className="aspect-square bg-slate-100 dark:bg-slate-800 rounded-xl overflow-hidden">
             {map.featuredImage ? (
-              <Image
+              <img
                 src={`/uploads/${map.featuredImage}`}
                 alt={map.title}
-                width={600}
-                height={600}
                 className="w-full h-full object-cover"
-                priority
+                loading="eager"
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-6xl text-slate-400">
