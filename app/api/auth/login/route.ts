@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Login the admin user
-    await loginAdmin();
+    await loginAdmin(username);
 
     return NextResponse.json({ 
       success: true, 

@@ -109,6 +109,19 @@ model MapImage {
   @@map("map_images")
 }
 
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  email     String?  @unique
+  password  String   // Hashed password
+  isAdmin   Boolean  @default(false)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
 enum FoldingStatus {
   FLAT
   FOLDED  

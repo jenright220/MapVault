@@ -1,6 +1,7 @@
 import { getIronSession } from 'iron-session';
 import { cookies } from 'next/headers';
 import bcrypt from 'bcryptjs';
+import { prisma } from './prisma';
 
 // Session configuration
 export const sessionOptions = {
@@ -28,17 +29,26 @@ export async function getSession() {
   return session;
 }
 
-// Admin credentials (in production, this should be in environment variables or database)
-const ADMIN_USERNAME = 'jenright20';
-const ADMIN_PASSWORD_HASH = bcrypt.hashSync('korver123!', 10);
-
-// Verify admin credentials
+// Verify admin credentials against database
 export async function verifyAdminCredentials(username: string, password: string): Promise<boolean> {
-  if (username !== ADMIN_USERNAME) {
+  try {
+    const user = await prisma.user.findFirst({
+      where: {
+        username: username,
+        isAdmin: true,
+        isActive: true,
+      },
+    });
+
+    if (!user) {
+      return false;
+    }
+
+    return bcrypt.compareSync(password, user.password);
+  } catch (error) {
+    console.error('Error verifying credentials:', error);
     return false;
   }
-  
-  return bcrypt.compareSync(password, ADMIN_PASSWORD_HASH);
 }
 
 // Check if user is authenticated as admin
@@ -48,10 +58,10 @@ export async function isAuthenticated(): Promise<boolean> {
 }
 
 // Login admin user
-export async function loginAdmin() {
+export async function loginAdmin(username: string) {
   const session = await getSession();
   session.userId = 'admin';
-  session.username = ADMIN_USERNAME;
+  session.username = username;
   session.isAdmin = true;
   session.isLoggedIn = true;
   await session.save();

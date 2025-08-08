@@ -1,4 +1,5 @@
-import { PrismaClient } from '@prisma/client'
+const { PrismaClient } = require('@prisma/client')
+import bcrypt from 'bcryptjs'
 
 const prisma = new PrismaClient()
 
@@ -72,6 +73,27 @@ async function main() {
       create: vendor,
     })
   }
+
+  // Seed Users
+  console.log('Seeding users...')
+  
+  // Create admin user
+  const adminPasswordHash = await bcrypt.hash('korver123!', 10)
+  
+  const adminUser = await prisma.user.upsert({
+    where: { username: 'jenright20' },
+    update: {},
+    create: {
+      username: 'jenright20',
+      email: 'admin@mapvault.com',
+      password: adminPasswordHash,
+      isAdmin: true,
+      isActive: true,
+    },
+  })
+
+  console.log(`Admin user created: ${adminUser.username}`)
+  console.log('Users seeded successfully!')
 
   console.log('Seeding finished.')
 }
