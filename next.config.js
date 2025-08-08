@@ -26,6 +26,11 @@ const nextConfig = {
       },
     ]
   },
+  // Configure image optimization
+  images: {
+    remotePatterns: [],
+    domains: [],
+  },
 }
 
 module.exports = nextConfig
