@@ -101,10 +101,18 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({ success: true, map: newMap });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Upload error:', error);
+    console.error('Error details:', {
+      message: error.message,
+      code: error.code,
+      stack: error.stack
+    });
     return NextResponse.json(
-      { error: 'Failed to create map record' },
+      { 
+        error: 'Failed to create map record',
+        details: error.message || 'Unknown error'
+      },
       { status: 500 }
     );
   }
