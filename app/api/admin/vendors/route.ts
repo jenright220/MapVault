@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({ vendor });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error creating vendor:', error);
     if (error.code === 'P2002') {
       return NextResponse.json(

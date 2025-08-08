@@ -39,7 +39,7 @@ export async function PUT(
     });
 
     return NextResponse.json({ vendor });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error updating vendor:', error);
     if (error.code === 'P2002') {
       return NextResponse.json(
@@ -100,7 +100,7 @@ export async function DELETE(
         message: 'Vendor deleted successfully' 
       });
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error deleting vendor:', error);
     if (error.code === 'P2025') {
       return NextResponse.json({ error: 'Vendor not found' }, { status: 404 });

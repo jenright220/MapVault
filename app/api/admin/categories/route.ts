@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({ category });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error creating category:', error);
     if (error.code === 'P2002') {
       return NextResponse.json(
