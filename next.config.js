@@ -1,14 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: '/mapvault',
+  assetPrefix: '/mapvault',
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   experimental: {
     serverActions: {
-      allowedOrigins: ['localhost:3000'],
+      bodySizeLimit: '10mb',
     },
   },
-  images: {
-    domains: ['localhost'],
-    formats: ['image/webp', 'image/avif'],
-  },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
