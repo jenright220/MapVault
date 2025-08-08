@@ -256,7 +256,7 @@ export default function EditMapForm({ map, categories, conditions, vendors, stor
           <div className="mb-4">
             <p className="text-sm text-slate-700 dark:text-slate-300 mb-2">Current image:</p>
             <img
-              src={`/uploads/${map.featuredImage}`}
+                              src={`/mapvault/uploads/${map.featuredImage}`}
               alt={map.title}
               className="w-32 h-32 object-cover rounded-lg border border-slate-200 dark:border-slate-600"
             />

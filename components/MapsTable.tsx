@@ -61,7 +61,7 @@ export default function MapsTable({ maps }: MapsTableProps) {
                 <div className="flex-shrink-0 w-20 h-20 bg-slate-100 dark:bg-slate-700 rounded-lg overflow-hidden">
                   {map.featuredImage ? (
                     <Image
-                      src={`/uploads/${map.featuredImage}`}
+                      src={`/mapvault/uploads/${map.featuredImage}`}
                       alt={map.title}
                       width={80}
                       height={80}
@@ -129,7 +129,7 @@ export default function MapsTable({ maps }: MapsTableProps) {
                     <div className="flex-shrink-0 w-16 h-16 bg-slate-100 dark:bg-slate-700 rounded-lg overflow-hidden">
                       {map.featuredImage ? (
                         <Image
-                          src={`/uploads/${map.featuredImage}`}
+                          src={`/mapvault/uploads/${map.featuredImage}`}
                           alt={map.title}
                           width={64}
                           height={64}

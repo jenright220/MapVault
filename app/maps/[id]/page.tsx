@@ -58,7 +58,7 @@ export default async function MapDetailPage({ params }: MapDetailPageProps) {
           <div className="aspect-square bg-slate-100 dark:bg-slate-800 rounded-xl overflow-hidden">
             {map.featuredImage ? (
               <Image
-                src={`/uploads/${map.featuredImage}`}
+                src={`/mapvault/uploads/${map.featuredImage}`}
                 alt={map.title}
                 width={600}
                 height={600}
@@ -78,7 +78,7 @@ export default async function MapDetailPage({ params }: MapDetailPageProps) {
               {map.images.map((image) => (
                 <div key={image.id} className="aspect-square bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden">
                   <Image
-                    src={`/uploads/${image.filename}`}
+                    src={`/mapvault/uploads/${image.filename}`}
                     alt={image.description || map.title}
                     width={150}
                     height={150}
