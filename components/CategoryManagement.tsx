@@ -50,8 +50,8 @@ export default function CategoryManagement({ categories: initialCategories }: Ca
 
     try {
       const url = editingCategory 
-        ? `/api/admin/categories/${editingCategory.id}`
-        : '/api/admin/categories';
+        ? `/mapvault/api/admin/categories/${editingCategory.id}`
+        : '/mapvault/api/admin/categories';
       
       const method = editingCategory ? 'PUT' : 'POST';
 

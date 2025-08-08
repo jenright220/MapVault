@@ -24,7 +24,7 @@ export default function UploadForm({ categories, conditions, vendors, storageLoc
     const formData = new FormData(e.currentTarget);
 
     try {
-      const response = await fetch('/api/upload', {
+      const response = await fetch('/mapvault/api/upload', {
         method: 'POST',
         body: formData,
       });

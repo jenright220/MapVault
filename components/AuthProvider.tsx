@@ -19,7 +19,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const checkAuth = async () => {
     try {
-      const response = await fetch('/api/auth/status');
+      const response = await fetch('/mapvault/api/auth/status');
       const data = await response.json();
       setIsAuthenticated(data.isAuthenticated);
       setUsername(data.username);
@@ -34,7 +34,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const logout = async () => {
     try {
-      await fetch('/api/auth/logout', { method: 'POST' });
+      await fetch('/mapvault/api/auth/logout', { method: 'POST' });
       setIsAuthenticated(false);
       setUsername(null);
       window.location.href = '/';

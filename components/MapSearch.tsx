@@ -49,7 +49,7 @@ export default function MapSearch({ onSearchResults, initialMaps }: MapSearchPro
 
   const loadFilterOptions = async () => {
     try {
-      const response = await fetch('/api/search');
+      const response = await fetch('/mapvault/api/search');
       const data = await response.json();
       if (response.ok) {
         setFilters(data.filters);
@@ -75,7 +75,7 @@ export default function MapSearch({ onSearchResults, initialMaps }: MapSearchPro
       if (activeFilters.featured) params.set('featured', activeFilters.featured);
       if (activeFilters.available) params.set('available', activeFilters.available);
 
-      const response = await fetch(`/api/search?${params.toString()}`);
+      const response = await fetch(`/mapvault/api/search?${params.toString()}`);
       const data = await response.json();
       
       if (response.ok) {

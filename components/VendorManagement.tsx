@@ -51,8 +51,8 @@ export default function VendorManagement({ vendors: initialVendors }: VendorMana
 
     try {
       const url = editingVendor 
-        ? `/api/admin/vendors/${editingVendor.id}`
-        : '/api/admin/vendors';
+        ? `/mapvault/api/admin/vendors/${editingVendor.id}`
+        : '/mapvault/api/admin/vendors';
       
       const method = editingVendor ? 'PUT' : 'POST';
 
@@ -96,7 +96,7 @@ export default function VendorManagement({ vendors: initialVendors }: VendorMana
     setError(null);
 
     try {
-      const response = await fetch(`/api/admin/vendors/${vendor.id}`, {
+      const response = await fetch(`/mapvault/api/admin/vendors/${vendor.id}`, {
         method: 'DELETE',
       });
 

@@ -32,7 +32,7 @@ export default function EditMapForm({ map, categories, conditions, vendors, stor
     const formData = new FormData(e.currentTarget);
 
     try {
-      const response = await fetch(`/api/maps/${map.id}`, {
+      const response = await fetch(`/mapvault/api/maps/${map.id}`, {
         method: 'PUT',
         body: formData,
       });

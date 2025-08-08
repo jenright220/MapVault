@@ -20,7 +20,7 @@ export default function DeleteMapButton({ mapId, mapTitle }: DeleteMapButtonProp
     setError(null);
 
     try {
-      const response = await fetch(`/api/maps/${mapId}`, {
+      const response = await fetch(`/mapvault/api/maps/${mapId}`, {
         method: 'DELETE',
       });
 
